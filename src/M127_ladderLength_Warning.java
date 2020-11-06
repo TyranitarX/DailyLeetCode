@@ -40,16 +40,17 @@ public class M127_ladderLength_Warning {
         }
         return 0;
     }
-    public static void main(String[] args){
+
+    public static void main(String[] args) {
         String beginword = "hit";
         String endword = "cog";
-        List<String> list =new ArrayList<>();
+        List<String> list = new ArrayList<>();
         list.add("hot");
         list.add("dot");
         list.add("dog");
         list.add("lot");
         list.add("log");
         list.add("cog");
-        System.out.println(new M127_ladderLength_Warning().ladderLength(beginword,endword,list));
+        System.out.println(new M127_ladderLength_Warning().ladderLength(beginword, endword, list));
     }
 }
