@@ -26,7 +26,6 @@ public class M328_oddEvenList {
         node.next.next.next.next.next = new ListNode(6);
         node.next.next.next.next.next.next = new ListNode(7);
         node.next.next.next.next.next.next.next = new ListNode(8);
-        new M328_oddEvenList().oddEvenList(node);
         System.out.println(node.val);
         System.out.println(node.next.val);
         System.out.println(node.next.next.val);
@@ -35,5 +34,6 @@ public class M328_oddEvenList {
         System.out.println(node.next.next.next.next.val);
         System.out.println(node.next.next.next.next.next.val);
         System.out.println(node.next.next.next.next.next.next.val);
+        new M328_oddEvenList().oddEvenList(node);
     }
 }
