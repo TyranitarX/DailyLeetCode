@@ -13,7 +13,7 @@ public class E1030_allCellsDistOrder {
         list.sort(Map.Entry.comparingByValue());
         int[][] lists = new int[list.size()][2];
         for (int i = 0; i < lists.length; i++) {
-             lists[i] = list.get(i).getKey();
+            lists[i] = list.get(i).getKey();
         }
         return lists;
     }
