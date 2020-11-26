@@ -1,6 +1,6 @@
 public class E1370_sortString {
     public String sortString(String s) {
-        StringBuffer S = new StringBuffer();
+        StringBuilder S = new StringBuilder();
         int[] x = new int[26];
         for (int i = 0; i < s.length(); i++) {
             x[s.charAt(i) - 97] += 1;
