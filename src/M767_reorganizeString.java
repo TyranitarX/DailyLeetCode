@@ -1,4 +1,3 @@
-import java.util.*;
 
 public class M767_reorganizeString {
     public String reorganizeString(String S) {
