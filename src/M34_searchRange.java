@@ -1,4 +1,3 @@
-import com.sun.scenario.effect.Reflection;
 
 public class M34_searchRange {
     public int[] searchRange(int[] nums, int target) {
@@ -27,8 +26,8 @@ public class M34_searchRange {
     }
 
     public static void main(String[] args) {
-        int[] nums = {2, 5, 6, 6, 7, 7, 7, 7, 8, 8, 10};
-        int[] range = new M34_searchRange().searchRange(nums, 7);
+        int[] nums = {8,8,8,8,8,8,8,8,8};
+        int[] range = new M34_searchRange().searchRange(nums, 8);
         System.out.println(range[0]);
         System.out.println(range[1]);
     }
