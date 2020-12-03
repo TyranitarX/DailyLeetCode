@@ -2,8 +2,10 @@ import java.util.*;
 
 public class H321_maxNumber {
     public int[] maxNumber(int[] nums1, int[] nums2, int k) {
+        //反向思路 从数组中取k个即丢弃size-k个 这样可以很好利用栈的特性
         k = nums1.length + nums2.length - k;
         String max = "0";
+        //枚举遍历两数组可能选出的数的个数
         for (int i = 0; i <= k; i++) {
             if (i > nums1.length || k - i > nums2.length)
                 continue;
@@ -11,6 +13,7 @@ public class H321_maxNumber {
             int len2 = k - i;
             Stack<Integer> stack1 = new Stack<>();
             Stack<Integer> stack2 = new Stack<>();
+            //取对应数组中对应个数
             for (int j = 0; j < nums1.length; j++) {
                 while (!stack1.empty() && stack1.peek() < nums1[j] && len1 > 0) {
                     stack1.pop();
@@ -36,7 +39,6 @@ public class H321_maxNumber {
             String maxnow = mergemax(stack1, stack2);
             max = max.compareTo(maxnow) > 0 ? max : maxnow;
         }
-        System.out.println(max);
         int[] x = new int[max.length()];
         for (int i = 0; i < x.length; i++) {
             x[i] = (max.charAt(i) - '0');
