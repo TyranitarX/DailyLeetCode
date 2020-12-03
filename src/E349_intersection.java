@@ -30,6 +30,6 @@ public class E349_intersection {
     public static void main(String[] args) {
         int[] a = {1, 2, 2, 1};
         int[] b = {2, 2};
-        System.out.println(new E349_intersection().intersection(a, b));
+        System.out.println(Arrays.toString(new E349_intersection().intersection(a, b)));
     }
 }
