@@ -1,7 +1,6 @@
 public class E746_minCostClimbingStairs {
     public int minCostClimbingStairs(int[] cost) {
         int[][] total = new int[cost.length][2];
-        total[0][0] = 0;
         total[0][1] = cost[0];
         total[1][0] = total[0][1];
         total[1][1] = cost[1];
