@@ -49,12 +49,12 @@ public class M103_zigzagLevelOrder {
         result.remove(result.size()-1);
         return result;
     }
+
     public List<List<Integer>> zigzagLevelOrder1(TreeNode root) {
         List<List<Integer>> ans = new LinkedList<List<Integer>>();
         if (root == null) {
             return ans;
         }
-
         Queue<TreeNode> nodeQueue = new LinkedList<TreeNode>();
         nodeQueue.offer(root);
         boolean isOrderLeft = true;
