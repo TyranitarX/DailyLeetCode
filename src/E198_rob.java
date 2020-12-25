@@ -3,6 +3,7 @@ public class E198_rob {
         int[] result = doRob(nums, 0);
         return Math.max(result[0], result[1]);
     }
+
     public int[] doRob(int[] nums, int key) {
         if (nums.length == 0)
             return new int[2];
@@ -20,5 +21,4 @@ public class E198_rob {
         int[] nums = {2, 1, 1, 2};
         System.out.println(new E198_rob().rob(nums));
     }
-
 }
