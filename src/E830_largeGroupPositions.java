@@ -26,13 +26,11 @@ public class E830_largeGroupPositions {
                 end = i;
                 pre = s.charAt(i);
             }
-            if (i == s.length() - 1){
-                if (count >= 3) {
+            if (i == s.length() - 1&&count>=3){
                     List<Integer> thislist = new ArrayList<>();
                     thislist.add(start);
                     thislist.add(end);
                     biglist.add(thislist);
-                }
             }
         }
         return biglist;
