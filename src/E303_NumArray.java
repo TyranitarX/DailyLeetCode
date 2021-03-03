@@ -1,6 +1,5 @@
 public class E303_NumArray {
     private int sums[];
-
     public E303_NumArray(int[] nums) {
         int n = nums.length;
         sums = new int[n + 1];

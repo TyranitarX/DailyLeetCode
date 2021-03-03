@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.HashMap;
+
 public class E387_firstUniqChar {
     public int firstUniqChar(String s) {
         int[] arr = new int[26];
