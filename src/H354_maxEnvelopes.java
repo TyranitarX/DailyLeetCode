@@ -16,10 +16,6 @@ public class H354_maxEnvelopes {
                     return o2[1] - o1[1];
             }
         });
-        for (int i = 0; i < n; i++) {
-            System.out.print(envelopes[i][0] + " ");
-            System.out.println(envelopes[i][1]);
-        }
         int len[] = new int[n];
         int total = 1;
         Arrays.fill(len, 1);
