@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class H132_minCut {
     public int minCut(String s) {

@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 
 public class M131_partition {
@@ -23,7 +24,6 @@ public class M131_partition {
         dfs(s, 0);
         return ret;
     }
-
     public void dfs(String s, int i) {
         if (i == n) {
             ret.add(new ArrayList<String>(ans));
