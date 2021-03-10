@@ -5,7 +5,6 @@ public class E1047_removeDuplicates {
         int n = s.length();
         StringBuffer sb = new StringBuffer();
         Stack<Character> stack = new Stack<>();
-        stack.push(s.charAt(0));
         for (int i = 1; i < n; i++) {
             if (!stack.empty() && stack.peek().equals(s.charAt(i))) {
                 stack.pop();
