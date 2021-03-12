@@ -1,8 +1,8 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
-
 public class H224_calculate {
+
     public int calculate(String s) {
         List<String> back = calculateBack(s);
         Stack<Integer> res = new Stack<>();
@@ -30,7 +30,7 @@ public class H224_calculate {
                 }
             }
         }
-        return res.peek();
+        return res.peek(); 
     }
 
     public List<String> calculateBack(String s) {
@@ -84,4 +84,5 @@ public class H224_calculate {
         String s = "-2+1";
         System.out.println(new H224_calculate().calculate(s));
     }
+
 }
