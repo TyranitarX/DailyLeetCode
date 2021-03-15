@@ -5,8 +5,9 @@ public class M331_isValidSerialization {
         for (int i = 0; i < n; i++) {
             if (slot == 0)
                 return false;
-            if(preorder.charAt(i)==','){}
-            else if(preorder.charAt(i)=='#')
+            if (preorder.charAt(i) == ',') {
+            }
+            else if (preorder.charAt(i) == '#')
                 slot--;
             else {
                 while (i < n && preorder.charAt(i) != ',') {
