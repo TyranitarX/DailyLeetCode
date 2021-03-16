@@ -8,8 +8,8 @@ public class M54_spiralOrder {
         int n = matrix.length;
         int m = matrix[0].length;
         Boolean[][] vis = new Boolean[n][m];
-        for (int i = 0; i < vis.length; i++) {
-            Arrays.fill(vis[i], false);
+        for (Boolean[] vi : vis) {
+            Arrays.fill(vi, false);
         }
         int i = 0, j = 0;
         int status = 0;//0右1下2左3上
