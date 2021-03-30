@@ -2,7 +2,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 public class H224_calculate {
-
     public int calculate(String s) {
         List<String> back = calculateBack(s);
         Stack<Integer> res = new Stack<>();
