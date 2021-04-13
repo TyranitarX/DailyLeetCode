@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 public class M80_removeDuplicates {
     public int removeDuplicates(int[] nums) {
         int n = nums.length;
