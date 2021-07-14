@@ -1,38 +1,25 @@
-import java.util.ArrayList;
-import java.util.LinkedList;
+import java.util.*;
+
 //
 public class M3_lengthOfLongestSubstring {
     public static int lengthOfLongestSubstring(String s) {
         if (s.length() == 0)
             return 0;
-        int k = 0;
-        String[] ss = s.split("");
-        int maxlength = 1;
-        int pre = 0;
-        for (; k < ss.length - 1; ) {
-            int nowlength = 1;
-            ArrayList<String> x = new ArrayList();
-            x.add(ss[k]);
-            for (int j = k + 1; j < ss.length; j++) {
-                if (x.contains(ss[j])) {
-                    k = x.indexOf(ss[j]) + pre + 1;
-                    pre = k;
-                    if (nowlength > maxlength)
-                        maxlength = nowlength;
+        int max = 0;
+        for (int i = 0; i < s.length(); i++) {
+            int length = 0;
+            Set<Character> set = new HashSet<>();
+            for (int j = i; j < s.length(); j++) {
+                if (!set.contains(s.charAt(j))) {
+                    set.add(s.charAt(j));
+                    length++;
+                } else
                     break;
-                }
-                if (j == ss.length - 1) {
-                    k = ss.length;
-                    nowlength++;
-                    if (nowlength > maxlength)
-                        maxlength = nowlength;
-                    break;
-                }
-                nowlength++;
-                x.add(ss[j]);
             }
+            if (length > max)
+                max = length;
         }
-        return maxlength;
+        return max;
     }
 
     public static void main(String args[]) {
