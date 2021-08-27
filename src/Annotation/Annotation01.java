@@ -23,6 +23,7 @@ public class Annotation01 {
  */
 @Target(value = {ElementType.METHOD, ElementType.TYPE})
 @Retention(value = RetentionPolicy.RUNTIME)
+@Documented
 @interface MyAnnotation {
     String name() default "";
 

@@ -1,26 +1,25 @@
 package M_144;
 
+import M_109.ListNode;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
 public class M144_stackPreorderTraversal {
     public List<Integer> preorderTraversal(TreeNode root) {
-        List<Integer> result = new ArrayList<>();
-        if (root == null)
-            return result;
-        Stack<TreeNode> liststack = new Stack<>();
-        TreeNode node = root;
-        while (!liststack.empty() || node != null) {
-            while (node != null) {
-                liststack.push(node);
-                result.add(node.val);
-                node = node.left;
+        List<Integer> res = new ArrayList<>();
+        Stack<TreeNode> stack = new Stack<>();
+        while (!stack.isEmpty() || root != null) {
+            while (root != null) {
+                res.add(root.val);
+                stack.push(root);
+                root = root.left;
             }
-            node = liststack.pop();
-            node = node.right;
+            root = stack.pop();
+            root = root.right;
         }
-        return result;
+        return res;
     }
 
     public static void main(String[] args) {
