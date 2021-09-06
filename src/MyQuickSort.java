@@ -1,7 +1,7 @@
 import java.util.Arrays;
 
-public class quickSort {
-    public void quick_sort(int nums[], int s, int e) {
+public class MyQuickSort {
+    public void quicksort(int[] nums, int s, int e) {
         if (s >= e)
             return;
         int i = s, j = e, x = nums[s];
@@ -16,15 +16,13 @@ public class quickSort {
                 nums[j] = nums[i];
         }
         nums[i] = x;
-        quick_sort(nums, s, i - 1);
-        quick_sort(nums, i + 1, e);
+        quicksort(nums, s, i - 1);
+        quicksort(nums, i + 1, e);
     }
 
     public static void main(String[] args) {
-        int[] nums = {2,1,54,4,2,3};
-        quickSort quickSort = new quickSort();
-        quickSort.quick_sort(nums, 0, nums.length - 1);
-        System.out.println(Arrays.toString(Arrays.stream(nums).
-                toArray()));
+        int[] i = {2, 3, 5, 1, 0, -1};
+        new MyQuickSort().quicksort(i, 0, i.length - 1);
+        System.out.println(Arrays.toString(i));
     }
 }

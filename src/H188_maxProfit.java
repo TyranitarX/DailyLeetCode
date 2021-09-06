@@ -2,24 +2,21 @@ import java.util.Arrays;
 
 public class H188_maxProfit {
     public int maxProfit(int k, int[] prices) {
-        if (prices.length==0)
+        int n = prices.length;
+        if (n == 0)
             return 0;
-        int[][] nowmaxbuy = new int[prices.length][k + 1];
-        int[][] nowmaxsold = new int[prices.length][k + 1];
-        nowmaxbuy[0][0] = -prices[0];
-        nowmaxsold[0][0] = 0;
-        k = Math.min(k, prices.length / 2);
+        int[][][] dp = new int[n][k + 1][2];
         for (int i = 1; i <= k; i++) {
-            nowmaxbuy[0][i] = nowmaxsold[0][i] = Integer.MIN_VALUE / 2;
+            dp[0][i][0] = 0;
+            dp[0][i][1] = -prices[0];
         }
-        for (int i = 1; i < prices.length; i++) {
-            nowmaxbuy[i][0] = Math.max(nowmaxbuy[i - 1][0], nowmaxsold[i - 1][0] - prices[i]);
+        for (int i = 1; i < n; i++) {
             for (int j = 1; j <= k; j++) {
-                nowmaxbuy[i][j] = Math.max(nowmaxbuy[i - 1][j], nowmaxsold[i - 1][j] - prices[i]);
-                nowmaxsold[i][j] = Math.max(nowmaxsold[i - 1][j], nowmaxbuy[i - 1][j - 1] + prices[i]);
+                dp[i][j][0] = Math.max(dp[i - 1][j][0], dp[i - 1][j][1] + prices[i]);
+                dp[i][j][1] = Math.max(dp[i - 1][j][1], dp[i - 1][j - 1][0] - prices[i]);
             }
         }
-        return Arrays.stream(nowmaxsold[prices.length - 1]).max().getAsInt();
+        return dp[n-1][k][0];
     }
 
     public int maxProfit1(int k, int[] prices) {
@@ -50,7 +47,7 @@ public class H188_maxProfit {
     }
 
     public static void main(String[] args) {
-        int[] prices = {3, 2, 6, 5, 0, 3};
+        int[] prices = {2,4,1};
         int k = 2;
         System.out.println(new H188_maxProfit().maxProfit(k, prices));
     }
