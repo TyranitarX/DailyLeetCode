@@ -1,27 +1,44 @@
-import java.util.Arrays;
-
+/**
+ * 二分系列
+ * 「力扣」第 875 题：爱吃香蕉的珂珂（中等）
+ * LCP 12. 小张刷题计划 （中等）
+ * 「力扣」第 1482 题：制作 m 束花所需的最少天数（中等）
+ * 「力扣」第 1011 题：在 D 天内送达包裹的能力（中等）
+ * 「力扣」第 1552 题：两球之间的磁力（中等）
+ */
 public class M1011_shipWithinDays {
-    public int shipWithinDays(int[] weights, int D) {
-        // 确定二分查找左右边界
-        int left = Arrays.stream(weights).max().getAsInt(), right = Arrays.stream(weights).sum();
+    public int shipWithinDays(int[] weights, int days) {
+        int n = weights.length;
+        int min = 0;
+        int max = 0;
+        for (int i = 0; i < n; i++) {
+            min = Math.max(min, weights[i]);
+            max += weights[i];
+        }
+        int left = min;
+        int right = max;
         while (left < right) {
-            int mid = (left + right) / 2;
-            // need 为需要运送的天数
-            // cur 为当前这一天已经运送的包裹重量之和
-            int need = 1, cur = 0;
-            for (int weight : weights) {
-                if (cur + weight > mid) {
-                    ++need;
-                    cur = 0;
-                }
-                cur += weight;
-            }
-            if (need <= D) {
-                right = mid;
-            } else {
+            int mid = left + (right - left) / 2;
+            int nowdays = getDays(weights, mid);
+            if (nowdays > days) {
                 left = mid + 1;
+            } else {
+                right = mid;
             }
         }
         return left;
+    }
+
+    public int getDays(int[] weights, int maxweight) {
+        int days = 1;
+        int count = 0;
+        for (int i = 0; i < weights.length; i++) {
+            if (count + weights[i] > maxweight) {
+                days++;
+                count = 0;
+            }
+            count += weights[i];
+        }
+        return days;
     }
 }

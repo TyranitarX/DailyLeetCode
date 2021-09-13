@@ -15,6 +15,8 @@ public class CoursePackage {
             time[i] = Integer.parseInt(values[0]);
             value[i] = Integer.parseInt(values[1]);
         }
+        boolean x =true;
+        String x1 ="123";
         int[][] dp = new int[n][m + 1];
         for (int i = 0; i <= m; i++) {
             dp[0][i] = time[0] <= i ? value[0] : 0;

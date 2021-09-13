@@ -1,39 +1,49 @@
+import java.util.Arrays;
+
 public class M443_compress {
     public int compress(char[] chars) {
-        int newlen = chars.length;
-        int s = 0;
-        int e = 0;
-        while (e < newlen) {
-            if (chars[s] == chars[e]) {
-                e++;
+        int n = chars.length;
+        int i = 0;
+        int j = 1;
+        int count = 1;
+        while (j < n) {
+            if (chars[i] == chars[j]) {
+                count++;
+                j++;
             }
-            if (e == newlen || chars[s] != chars[e]) {
-                String value = String.valueOf(e - s);
-                s++;
-                if (!value.equals("1")) {
-                    newlen -= ((e - s) - value.length());
-                    for (int i = 0; i < value.length(); i++) {
-                        chars[s] = value.charAt(i);
-                        s++;
-                    }
-                    move(chars, s, e);
+            if (j == n || chars[i] != chars[j]) {
+                if (count == 1) {
+                    i = j;
+                    j = j + 1;
+                    continue;
                 }
-                e = s;
+                String countstr = String.valueOf(count);
+                int coutlen = countstr.length();
+                merge(chars, i + coutlen + 1, j, n);
+                for (int k = 0; k < coutlen; k++) {
+                    chars[i + k + 1] = countstr.charAt(k);
+                }
+                i = i + coutlen + 1;
+                j = i + 1;
+                n = n - count + coutlen + 1;
+                count = 1;
             }
         }
-        return newlen;
+        System.out.println(Arrays.toString(chars));
+        return n;
     }
 
-    public void move(char[] chars, int s, int e) {
-        while (e < chars.length) {
-            chars[s] = chars[e];
-            s++;
-            e++;
+    public void merge(char[] chars, int i, int j, int n) {
+        while (j < n) {
+            chars[i] = chars[j];
+            i++;
+            j++;
         }
     }
 
     public static void main(String[] args) {
         char[] chars = {'a', 'a', 'b', 'b', 'c', 'c', 'c',};
-        new M443_compress().compress(chars);
+        System.out.println(new M443_compress().compress(chars));
+
     }
 }
