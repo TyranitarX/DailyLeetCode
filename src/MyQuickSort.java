@@ -4,20 +4,27 @@ public class MyQuickSort {
     public void quicksort(int[] nums, int s, int e) {
         if (s >= e)
             return;
-        int i = s, j = e, x = nums[s];
+        int cur = nums[s];
+        int i = s + 1;
+        int j = e;
         while (i < j) {
-            while (i < j && nums[j] >= x)
+            while (nums[j] > cur && i < j) {
                 j--;
-            if (i < j)
-                nums[i] = nums[j];
-            while (i < j && nums[i] <= x)
+            }
+            while (nums[i] < cur && i < j) {
                 i++;
-            if (i < j)
-                nums[j] = nums[i];
+            }
+            swap(nums, i, j);
         }
-        nums[i] = x;
+        swap(nums, s, i);
         quicksort(nums, s, i - 1);
         quicksort(nums, i + 1, e);
+    }
+
+    public void swap(int[] nums, int i, int j) {
+        int temp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = temp;
     }
 
     public static void main(String[] args) {
