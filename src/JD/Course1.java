@@ -7,7 +7,7 @@ import java.util.Scanner;
 /**
  * 一片房区看做一个二维数组，小明觉得相邻的两户人家关系可能较好，小明把在一条对角线上的住户
  * 看做邻居。现在想要统计共有多少组住户是邻居。
- * <p>ttttttttttttttttttyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy
+ * <p>
  * 输入第一行为建筑树 2~n行为房子的xy坐标
  * 3
  * 2 3
