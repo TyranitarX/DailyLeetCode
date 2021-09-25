@@ -25,7 +25,6 @@ public class Course2 {
             i++;
         }
         Arrays.sort(ress);
-        System.out.println(1);
         return ress;
     }
 
@@ -49,7 +48,7 @@ public class Course2 {
     }
 
     public static void main(String[] args) {
-        char[] chars = {'0','1','2'};
+        char[] chars = {'0', '1', '2'};
         System.out.println(new Course2().Permutation(chars, 2));
     }
 }
