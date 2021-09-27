@@ -1,3 +1,5 @@
+import java.util.Collections;
+
 public class M74_searchMatrix {
     public boolean searchMatrix(int[][] matrix, int target) {
         int i = 0;

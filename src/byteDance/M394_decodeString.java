@@ -2,6 +2,7 @@ package byteDance;
 
 import java.util.Stack;
 import java.util.stream.Collectors;
+import java.lang.String;
 
 public class M394_decodeString {
     public String decodeString(String s) {
@@ -18,7 +19,7 @@ public class M394_decodeString {
                 cur.reverse();
                 signstack.pop();
                 StringBuilder num = new StringBuilder();
-                while (!signstack.isEmpty()&&Character.isDigit(signstack.peek())) {
+                while (!signstack.isEmpty() && Character.isDigit(signstack.peek())) {
                     num.append(signstack.pop());
                 }
                 int count = Integer.parseInt(num.reverse().toString());

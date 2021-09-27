@@ -5,22 +5,27 @@ import java.util.Set;
 
 public class M128_longestConsecutive {
     public int longestConsecutive(int[] nums) {
-        Set<Integer> numset = new HashSet<>();
+        Set<Integer> set = new HashSet<>();
         for (int num : nums) {
-            numset.add(num);
+            set.add(num);
         }
-        int max = 0;
-        for (int num : numset) {
-            if (!numset.contains(num - 1)) {
-                int currnum = num;
-                int curmax = 1;
-                while (numset.contains(currnum + 1)) {
-                    currnum += 1;
-                    curmax += 1;
+        int count = 0;
+        for (int num : nums) {
+            if (!set.contains(num - 1)) {
+                int cur = 1;
+                int curcount = 1;
+                while (set.contains(cur + 1)) {
+                    cur += 1;
+                    curcount += 1;
                 }
-                max = Math.max(curmax, max);
+                count = Math.max(cur, curcount);
             }
         }
-        return max;
+        return count;
+    }
+
+    public static void main(String[] args) {
+        int[] nums = {100, 4, 200, 1, 3, 2};
+        System.out.println(new M128_longestConsecutive().longestConsecutive(nums));
     }
 }

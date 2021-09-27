@@ -1,7 +1,7 @@
 import java.util.HashMap;
 
 public class TTEST {
-    public String delete(String s) {
-        return "1123";
+    public static void main(String[] args) {
+        
     }
 }

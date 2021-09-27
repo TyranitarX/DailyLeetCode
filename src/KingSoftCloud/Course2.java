@@ -1,5 +1,7 @@
 package KingSoftCloud;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class Course2 {
@@ -8,6 +10,7 @@ public class Course2 {
         Scanner in = new Scanner(System.in);
         int n = Integer.parseInt(in.nextLine());
         String[] numss = in.nextLine().split(" ");
+        Map<String,String> mymap =new HashMap<>();
         int[] nums = new int[n];
         for (int i = 0; i < n; i++) {
             nums[i] = Integer.parseInt(numss[i]);
