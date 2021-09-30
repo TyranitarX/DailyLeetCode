@@ -6,8 +6,8 @@ public class Singleton {
     private volatile static Singleton uniqueInstance;
 
     private Singleton() {
-        synchronized (Singleton.class){
-            if(uniqueInstance!=null)
+        synchronized (Singleton.class) {
+            if (uniqueInstance != null)
                 throw new RuntimeException("反射！");
         }
     }

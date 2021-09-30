@@ -19,43 +19,45 @@ class ListNode {
 
 public class H25_reverseKGroup {
     public ListNode reverseKGroup(ListNode head, int k) {
-        ListNode res = null;
-        ListNode pre = null;
-        ListNode now = head;
-        ListNode tail = head;
-        int p = 1;
-        while (tail != null) {
-            if (p % k != 0) {
-                tail = tail.next;
+        int count = 1;
+        ListNode reshead = null;
+        ListNode pretail = null;
+        ListNode curhead = head;
+        ListNode curtail = head;
+        while (curtail != null) {
+            if (count % k != 0) {
+                curtail = curtail.next;
             } else {
-                ListNode next = tail.next;
-                tail.next = null;
-                ListNode[] rever = reverse(now);
-                if (pre != null) {
-                    pre.next = rever[0];
+                ListNode next = curtail.next;
+                curtail.next = null;
+                ListNode[] rev = reverse(curhead);
+                if (pretail == null) {
+                    reshead = rev[0];
                 } else {
-                    res = rever[0];
+                    pretail.next = rev[0];
                 }
-                pre = rever[1];
-                now = next;
-                tail = next;
+                pretail = rev[1];
+                curhead = next;
+                curtail = next;
             }
-            p++;
+            count++;
         }
-        if (now != null) {
-            pre.next = now;
+        while (curhead != null) {
+            pretail.next = curhead;
+            pretail = pretail.next;
+            curhead = curhead.next;
         }
-        return res;
+        return reshead;
     }
 
-    public ListNode[] reverse(ListNode head) {
-        ListNode tail = head;
+    public ListNode[] reverse(ListNode node) {
+        ListNode tail = node;
         ListNode pre = null;
-        while (head != null) {
-            ListNode next = head.next;
-            head.next = pre;
-            pre = head;
-            head = next;
+        while (node != null) {
+            ListNode next = node.next;
+            node.next = pre;
+            pre = node;
+            node = next;
         }
         return new ListNode[]{pre, tail};
     }

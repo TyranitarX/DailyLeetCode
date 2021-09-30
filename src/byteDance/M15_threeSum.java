@@ -7,25 +7,25 @@ import java.util.List;
 public class M15_threeSum {
     public List<List<Integer>> threeSum(int[] nums) {
         List<List<Integer>> res = new ArrayList<>();
-        int m = nums.length;
         Arrays.sort(nums);
-        for (int i = 0; i < m - 2; i++) {
+        for (int i = 0; i < nums.length; i++) {
             if (i > 0 && nums[i] == nums[i - 1])
                 continue;
+            int end = nums.length - 1;
             int target = -nums[i];
-            int last = m - 1;
-            for (int j = i + 1; j < m - 1; j++) {
+            for (int j = i + 1; j < nums.length; j++) {
                 if (j > i + 1 && nums[j] == nums[j - 1])
                     continue;
-                if (j == last) {
+                while (j < end && nums[j] + nums[end] > target)
+                    end--;
+                if (j == end)
                     break;
-                }
-                if (nums[j] + nums[last] == target) {
-                    List<Integer> array = new ArrayList<>();
-                    array.add(nums[i]);
-                    array.add(nums[j]);
-                    array.add(nums[last]);
-                    res.add(array);
+                if (nums[j] + nums[end] == target) {
+                    List<Integer> resarr = new ArrayList<>();
+                    resarr.add(nums[i]);
+                    resarr.add(nums[j]);
+                    resarr.add(nums[end]);
+                    res.add(resarr);
                 }
             }
         }

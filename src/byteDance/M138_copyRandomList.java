@@ -36,7 +36,7 @@ public class M138_copyRandomList {
         }
         head = newhead;
         RandomNode res = head.next;
-        while (head!=null&&head.next != null) {
+        while (head != null && head.next != null) {
             RandomNode next = head.next;
             head.next = head.next.next;
             next.next = next.next != null ? next.next.next : null;

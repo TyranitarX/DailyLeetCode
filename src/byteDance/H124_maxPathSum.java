@@ -37,12 +37,19 @@ public class H124_maxPathSum {
             return 0;
         int leftgain = getmaxgain(root.left);
         int rightgain = getmaxgain(root.right);
+        int nowleft = Math.max(leftgain, 0);
+        int nowright = Math.max(rightgain, 0);
+        max = Math.max(root.val + nowleft + nowright, max);
 
-        int maxgain = root.val + Math.max(leftgain, rightgain);
-        int maxcur = root.val;
-        maxcur = leftgain > 0 ? maxcur + leftgain : maxcur;
-        maxcur = rightgain > 0 ? maxcur + rightgain : maxcur;
-        max = Math.max(max, maxcur);
-        return maxgain;
+        return root.val + Math.max(leftgain, rightgain);
+    }
+
+    public static void main(String[] args) {
+
+        TreeNode treeNode = new TreeNode(1);
+        treeNode.left = new TreeNode(2);
+        treeNode.right = new TreeNode(-1);
+
+        System.out.println(new H124_maxPathSum().maxPathSum(treeNode));
     }
 }
