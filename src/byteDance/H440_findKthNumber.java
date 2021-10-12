@@ -1,5 +1,7 @@
 package byteDance;
 
+import java.util.concurrent.locks.ReentrantLock;
+
 /**
  * 给定整数 n 和 k，找到 1 到 n 中字典序第 k 小的数字。
  * <p>
